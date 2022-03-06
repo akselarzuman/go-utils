@@ -965,6 +965,18 @@ func TestSort(t *testing.T) {
 			}
 		}
 	})
+
+	t.Run("sorts slice of string", func(t *testing.T) {
+		input := []string{"Zeynep", "Aksel"}
+		expectedOutput := []string{"Aksel", "Zeynep"}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %s, but got %s", expectedOutput, input)
+			}
+		}
+	})
 }
 
 func TestSortDesc(t *testing.T) {
@@ -1108,6 +1120,18 @@ func TestSortDesc(t *testing.T) {
 		for i := 0; i < len(input); i++ {
 			if input[i] != expectedOutput[i] {
 				t.Errorf("Expected %f, but got %f", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of string descending", func(t *testing.T) {
+		input := []string{"Aksel", "Zeynep"}
+		expectedOutput := []string{"Zeynep", "Aksel"}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %s, but got %s", expectedOutput, input)
 			}
 		}
 	})
