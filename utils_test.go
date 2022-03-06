@@ -1504,123 +1504,387 @@ func TestMin(t *testing.T) {
 func TestMax(t *testing.T) {
 	result := 4
 
-	t.Run("int scenario", func(t *testing.T) {
-		input := []int{1, 2, 3, 4}
-		expectedOutput := result
-		actualOutput := Max(input)
+	t.Run("int scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []int{}
+			expectedOutput := 0
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []int(nil)
+			expectedOutput := 0
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []int{1, 2, 3, 4}
+			expectedOutput := result
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("int8 scenario", func(t *testing.T) {
-		input := []int8{1, 2, 3, 4}
-		expectedOutput := int8(result)
-		actualOutput := Max(input)
+	t.Run("int8 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []int8{}
+			expectedOutput := int8(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []int8(nil)
+			expectedOutput := int8(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []int8{1, 2, 3, 4}
+			expectedOutput := int8(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("int16 scenario", func(t *testing.T) {
-		input := []int16{1, 2, 3, 4}
-		expectedOutput := int16(result)
-		actualOutput := Max(input)
+	t.Run("int16 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []int16{}
+			expectedOutput := int16(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []int16(nil)
+			expectedOutput := int16(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []int16{1, 2, 3, 4}
+			expectedOutput := int16(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("int32 scenario", func(t *testing.T) {
-		input := []int32{1, 2, 3, 4}
-		expectedOutput := int32(result)
-		actualOutput := Max(input)
+	t.Run("int32 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []int32{}
+			expectedOutput := int32(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []int32(nil)
+			expectedOutput := int32(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []int32{1, 2, 3, 4}
+			expectedOutput := int32(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("int64 scenario", func(t *testing.T) {
-		input := []int64{1, 2, 3, 4}
-		expectedOutput := int64(result)
-		actualOutput := Max(input)
+	t.Run("int64 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []int64{}
+			expectedOutput := int64(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []int64(nil)
+			expectedOutput := int64(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []int64{1, 2, 3, 4}
+			expectedOutput := int64(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("float32 scenario", func(t *testing.T) {
-		input := []float32{1, 2, 3, 4}
-		expectedOutput := float32(result)
-		actualOutput := Max(input)
+	t.Run("float32 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []float32{}
+			expectedOutput := float32(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []float32(nil)
+			expectedOutput := float32(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []float32{1, 2, 3, 4}
+			expectedOutput := float32(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("float64 scenario", func(t *testing.T) {
-		input := []float64{1, 2, 3, 4}
-		expectedOutput := float64(result)
-		actualOutput := Max(input)
+	t.Run("float64 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []float64{}
+			expectedOutput := float64(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []float64(nil)
+			expectedOutput := float64(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []float64{1, 2, 3, 4}
+			expectedOutput := float64(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("uint scenario", func(t *testing.T) {
-		input := []uint{1, 2, 3, 4}
-		expectedOutput := uint(result)
-		actualOutput := Max(input)
+	t.Run("uint scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []uint{}
+			expectedOutput := uint(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []uint(nil)
+			expectedOutput := uint(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []uint{1, 2, 3, 4}
+			expectedOutput := uint(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("uint8 scenario", func(t *testing.T) {
-		input := []uint8{1, 2, 3, 4}
-		expectedOutput := uint8(result)
-		actualOutput := Max(input)
+	t.Run("uint8 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []uint8{}
+			expectedOutput := uint8(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []uint8(nil)
+			expectedOutput := uint8(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []uint8{1, 2, 3, 4}
+			expectedOutput := uint8(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("uint16 scenario", func(t *testing.T) {
-		input := []uint16{1, 2, 3, 4}
-		expectedOutput := uint16(result)
-		actualOutput := Max(input)
+	t.Run("uint16 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []uint16{}
+			expectedOutput := uint16(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []uint16(nil)
+			expectedOutput := uint16(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []uint16{1, 2, 3, 4}
+			expectedOutput := uint16(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("uint32 scenario", func(t *testing.T) {
-		input := []uint32{1, 2, 3, 4}
-		expectedOutput := uint32(result)
-		actualOutput := Max(input)
+	t.Run("uint32 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []uint32{}
+			expectedOutput := uint32(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []uint32(nil)
+			expectedOutput := uint32(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []uint32{1, 2, 3, 4}
+			expectedOutput := uint32(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 
-	t.Run("uint64 scenario", func(t *testing.T) {
-		input := []uint64{1, 2, 3, 4}
-		expectedOutput := uint64(result)
-		actualOutput := Max(input)
+	t.Run("uint64 scenarios", func(t *testing.T) {
+		t.Run("when slice is empty", func(t *testing.T) {
+			input := []uint64{}
+			expectedOutput := uint64(0)
+			actualOutput := Max(input)
 
-		if actualOutput != expectedOutput {
-			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
-		}
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is nil", func(t *testing.T) {
+			input := []uint64(nil)
+			expectedOutput := uint64(0)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			input := []uint64{1, 2, 3, 4}
+			expectedOutput := uint64(result)
+			actualOutput := Max(input)
+
+			if actualOutput != expectedOutput {
+				t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+			}
+		})
 	})
 }
