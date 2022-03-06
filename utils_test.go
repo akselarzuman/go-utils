@@ -820,3 +820,295 @@ func TestSum(t *testing.T) {
 		})
 	})
 }
+
+func TestSort(t *testing.T) {
+	t.Run("sorts slice of int", func(t *testing.T) {
+		input := []int{4, 3, 2, 1}
+		expectedOutput := []int{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int8", func(t *testing.T) {
+		input := []int8{4, 3, 2, 1}
+		expectedOutput := []int8{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int16", func(t *testing.T) {
+		input := []int16{4, 3, 2, 1}
+		expectedOutput := []int16{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int32", func(t *testing.T) {
+		input := []int32{4, 3, 2, 1}
+		expectedOutput := []int32{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int64", func(t *testing.T) {
+		input := []int64{4, 3, 2, 1}
+		expectedOutput := []int64{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint", func(t *testing.T) {
+		input := []uint{4, 3, 2, 1}
+		expectedOutput := []uint{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint", func(t *testing.T) {
+		input := []uint8{4, 3, 2, 1}
+		expectedOutput := []uint8{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint16", func(t *testing.T) {
+		input := []uint16{4, 3, 2, 1}
+		expectedOutput := []uint16{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint32", func(t *testing.T) {
+		input := []uint32{4, 3, 2, 1}
+		expectedOutput := []uint32{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint64", func(t *testing.T) {
+		input := []uint64{4, 3, 2, 1}
+		expectedOutput := []uint64{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of float32", func(t *testing.T) {
+		input := []float32{4, 3, 2, 1}
+		expectedOutput := []float32{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %f, but got %f", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of float64", func(t *testing.T) {
+		input := []float64{4, 3, 2, 1}
+		expectedOutput := []float64{1, 2, 3, 4}
+		Sort(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %f, but got %f", expectedOutput, input)
+			}
+		}
+	})
+}
+
+func TestSortDesc(t *testing.T) {
+	t.Run("sorts slice of int descending", func(t *testing.T) {
+		input := []int{4, 2, 1, 3}
+		expectedOutput := []int{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int8 descending", func(t *testing.T) {
+		input := []int8{4, 2, 1, 3}
+		expectedOutput := []int8{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int16 descending", func(t *testing.T) {
+		input := []int16{4, 2, 1, 3}
+		expectedOutput := []int16{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int32 descending", func(t *testing.T) {
+		input := []int32{4, 2, 1, 3}
+		expectedOutput := []int32{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of int64 descending", func(t *testing.T) {
+		input := []int64{4, 2, 1, 3}
+		expectedOutput := []int64{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint descending", func(t *testing.T) {
+		input := []uint{4, 2, 1, 3}
+		expectedOutput := []uint{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint descending", func(t *testing.T) {
+		input := []uint8{4, 2, 1, 3}
+		expectedOutput := []uint8{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint16 descending", func(t *testing.T) {
+		input := []uint16{4, 2, 1, 3}
+		expectedOutput := []uint16{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint32 descending", func(t *testing.T) {
+		input := []uint32{4, 2, 1, 3}
+		expectedOutput := []uint32{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of uint64 descending", func(t *testing.T) {
+		input := []uint64{4, 2, 1, 3}
+		expectedOutput := []uint64{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %d, but got %d", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of float32 descending", func(t *testing.T) {
+		input := []float32{4, 2, 1, 3}
+		expectedOutput := []float32{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %f, but got %f", expectedOutput, input)
+			}
+		}
+	})
+
+	t.Run("sorts slice of float64 descending", func(t *testing.T) {
+		input := []float64{4, 2, 1, 3}
+		expectedOutput := []float64{4, 3, 2, 1}
+		SortDesc(input)
+
+		for i := 0; i < len(input); i++ {
+			if input[i] != expectedOutput[i] {
+				t.Errorf("Expected %f, but got %f", expectedOutput, input)
+			}
+		}
+	})
+}
