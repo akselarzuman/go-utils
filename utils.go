@@ -49,3 +49,33 @@ func SortDesc[T number](slice []T) {
 		return slice[i] > slice[j]
 	})
 }
+
+// Min get the min value of slice.
+// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64
+// as types for slice values.
+func Min[T number](slice []T) T {
+	var min T = 0
+
+	for _, v := range slice {
+		if v < min {
+			min = v
+		}
+	}
+
+	return min
+}
+
+// Max get the max value of slice.
+// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64
+// as types for slice values.
+func Max[T number](slice []T) T {
+	var max T = 0
+
+	for _, v := range slice {
+		if v > max {
+			max = v
+		}
+	}
+
+	return max
+}
