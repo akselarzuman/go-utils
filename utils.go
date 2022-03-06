@@ -62,8 +62,7 @@ func SortDesc[T sortable](slice []T) {
 
 	if t.Elem().Kind() == reflect.String {
 		var s interface{} = slice
-		str := s.([]string)
-		sort.Sort(sort.Reverse(sort.StringSlice(str)))
+		sort.Sort(sort.Reverse(sort.StringSlice(s.([]string))))
 		return
 	}
 
