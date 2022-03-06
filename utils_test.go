@@ -1112,3 +1112,127 @@ func TestSortDesc(t *testing.T) {
 		}
 	})
 }
+
+func TestMin(t *testing.T) {
+	result := 1
+
+	t.Run("int scenario", func(t *testing.T) {
+		input := []int{1, 2, 3, 4}
+		expectedOutput := result
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("int8 scenario", func(t *testing.T) {
+		input := []int8{1, 2, 3, 4}
+		expectedOutput := int8(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("int16 scenario", func(t *testing.T) {
+		input := []int16{1, 2, 3, 4}
+		expectedOutput := int16(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("int32 scenario", func(t *testing.T) {
+		input := []int32{1, 2, 3, 4}
+		expectedOutput := int32(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("int64 scenario", func(t *testing.T) {
+		input := []int64{1, 2, 3, 4}
+		expectedOutput := int64(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("float32 scenario", func(t *testing.T) {
+		input := []float32{1, 2, 3, 4}
+		expectedOutput := float32(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("float64 scenario", func(t *testing.T) {
+		input := []float64{1, 2, 3, 4}
+		expectedOutput := float64(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %f, but got %f", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("uint scenario", func(t *testing.T) {
+		input := []uint{1, 2, 3, 4}
+		expectedOutput := uint(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("uint8 scenario", func(t *testing.T) {
+		input := []uint8{1, 2, 3, 4}
+		expectedOutput := uint8(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("uint16 scenario", func(t *testing.T) {
+		input := []uint16{1, 2, 3, 4}
+		expectedOutput := uint16(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("uint32 scenario", func(t *testing.T) {
+		input := []uint32{1, 2, 3, 4}
+		expectedOutput := uint32(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("uint64 scenario", func(t *testing.T) {
+		input := []uint64{1, 2, 3, 4}
+		expectedOutput := uint64(result)
+		actualOutput := Min(input)
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+}
