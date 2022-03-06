@@ -1,11 +1,17 @@
 package utils
 
-import "sort"
+import (
+	"sort"
+)
+
+type number interface {
+	int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64
+}
 
 // Contains checks whether the value is in slice or not.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
-func Contains[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64 | string](slice []T, value T) bool {
+func Contains[T number | string](slice []T, value T) bool {
 	for _, v := range slice {
 		if v == value {
 			return true
@@ -18,7 +24,7 @@ func Contains[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | 
 // Sum sums the values of slice.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64
 // as types for slice values.
-func Sum[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64](slice []T) T {
+func Sum[T number](slice []T) T {
 	var sum T
 	for _, v := range slice {
 		sum += v
@@ -29,7 +35,7 @@ func Sum[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8
 // Sort sorts ascending the values of slice.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64
 // as types for slice values.
-func Sort[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64](slice []T) {
+func Sort[T number](slice []T) {
 	sort.Slice(slice, func(i, j int) bool {
 		return slice[i] < slice[j]
 	})
@@ -38,7 +44,7 @@ func Sort[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint
 // SortDesc sorts descending the values of slice.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64
 // as types for slice values.
-func SortDesc[T int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64](slice []T) {
+func SortDesc[T number](slice []T) {
 	sort.Slice(slice, func(i, j int) bool {
 		return slice[i] > slice[j]
 	})
