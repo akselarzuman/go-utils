@@ -1912,3 +1912,64 @@ func TestMax(t *testing.T) {
 		})
 	})
 }
+
+func TestFilter(t *testing.T) {
+	t.Run("struct scenarios", func(t *testing.T) {
+		type testCase struct {
+			name    string
+			surname string
+			age     int
+		}
+
+		t.Run("when empty slice", func(t *testing.T) {
+			filtered := Filter([]testCase{}, func(tc testCase) bool {
+				return tc.age > 18
+			})
+
+			if len(filtered) != 0 {
+				t.Errorf("Expected empty slice, but got %v", filtered)
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			filtered := Filter([]testCase(nil), func(tc testCase) bool {
+				return tc.age > 18
+			})
+
+			if len(filtered) != 0 {
+				t.Errorf("Expected empty slice, but got %v", filtered)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			testCases := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			filtered := Filter(testCases, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if len(filtered) != 2 {
+				t.Errorf("Expected 2, but got %d", len(filtered))
+			}
+
+			if filtered[0].name != "Aksel" {
+				t.Errorf("Expected Aksel, but got %s", filtered[0].name)
+			}
+
+			if filtered[1].name != "Zeynep" {
+				t.Errorf("Expected Zeynep, but got %s", filtered[1].name)
+			}
+		})
+	})
+}

@@ -13,6 +13,10 @@ type sortable interface {
 	number | string
 }
 
+type filterable interface {
+	any
+}
+
 // Contains checks whether the value is in slice or not.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
@@ -109,4 +113,19 @@ func Max[T number](slice []T) T {
 	}
 
 	return max
+}
+
+// Filter filters the values of slice by the given function.
+// It any type for slice values.
+// Returns empty if given slice is nil or empty.
+func Filter[T filterable](slice []T, f func(T) bool) []T {
+	var result []T
+
+	for _, v := range slice {
+		if f(v) {
+			result = append(result, v)
+		}
+	}
+
+	return result
 }
