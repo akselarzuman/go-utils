@@ -23,7 +23,7 @@ jobs:
       run: make vet
 
   test:
-    needs: lint
+    needs: linters
     runs-on: ubuntu-latest
     steps:
     - name: Set up Go
