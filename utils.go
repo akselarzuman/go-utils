@@ -126,7 +126,16 @@ func Filter[T any](slice []T, f func(T) bool) []T {
 	return result
 }
 
+// Diff returns the difference of two slices.
+// Gets the values of s1 that are not in s2.
+// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
+// as types for slice values.
+// Returns empty if given slice s1 is nil or empty.
 func Diff[T enumerable](s1, s2 []T) []T {
+	if len(s1) == 0 {
+		return []T{}
+	}
+
 	var result []T
 
 	for _, v := range s1 {
@@ -138,7 +147,15 @@ func Diff[T enumerable](s1, s2 []T) []T {
 	return result
 }
 
+// Intersect returns the intersection of two slices.
+// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
+// as types for slice values.
+// Returns empty if given slices, s1 or s2, are nil or empty.
 func Intersect[T enumerable](s1, s2 []T) []T {
+	if len(s1) == 0 || len(s2) == 0 {
+		return []T{}
+	}
+
 	var result []T
 
 	for _, v := range s1 {
