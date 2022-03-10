@@ -9,18 +9,14 @@ type number interface {
 	int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64
 }
 
-type sortable interface {
+type enumerable interface {
 	number | string
-}
-
-type filterable interface {
-	any
 }
 
 // Contains checks whether the value is in slice or not.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
-func Contains[T number | string](slice []T, value T) bool {
+func Contains[T enumerable](slice []T, value T) bool {
 	for _, v := range slice {
 		if v == value {
 			return true
@@ -44,7 +40,7 @@ func Sum[T number](slice []T) T {
 // Sort sorts ascending the values of slice.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
-func Sort[T sortable](slice []T) {
+func Sort[T enumerable](slice []T) {
 	t := reflect.TypeOf(slice)
 
 	if t.Elem().Kind() == reflect.String {
@@ -61,7 +57,7 @@ func Sort[T sortable](slice []T) {
 // SortDesc sorts descending the values of slice.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
-func SortDesc[T sortable](slice []T) {
+func SortDesc[T enumerable](slice []T) {
 	t := reflect.TypeOf(slice)
 
 	if t.Elem().Kind() == reflect.String {
@@ -118,11 +114,35 @@ func Max[T number](slice []T) T {
 // Filter filters the values of slice by the given function.
 // It any type for slice values.
 // Returns empty if given slice is nil or empty.
-func Filter[T filterable](slice []T, f func(T) bool) []T {
+func Filter[T any](slice []T, f func(T) bool) []T {
 	var result []T
 
 	for _, v := range slice {
 		if f(v) {
+			result = append(result, v)
+		}
+	}
+
+	return result
+}
+
+func Diff[T enumerable](s1, s2 []T) []T {
+	var result []T
+
+	for _, v := range s1 {
+		if !Contains(s2, v) {
+			result = append(result, v)
+		}
+	}
+
+	return result
+}
+
+func Intersect[T enumerable](s1, s2 []T) []T {
+	var result []T
+
+	for _, v := range s1 {
+		if Contains(s2, v) {
 			result = append(result, v)
 		}
 	}
