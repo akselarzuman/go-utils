@@ -3,3 +3,9 @@ unit-tests:
 
 linter:
 	golangci-lint run
+
+vet:
+	go vet -v ./...
+
+build:
+	go build ./...
