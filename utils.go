@@ -16,7 +16,7 @@ type enumerable interface {
 // Contains checks whether the value is in slice or not.
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
-func Contains[T enumerable](slice []T, value T) bool {
+func Contains[T comparable](slice []T, value T) bool {
 	for _, v := range slice {
 		if v == value {
 			return true
@@ -131,7 +131,7 @@ func Filter[T any](slice []T, f func(T) bool) []T {
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
 // Returns empty if given slice s1 is nil or empty.
-func Diff[T enumerable](s1, s2 []T) []T {
+func Diff[T comparable](s1, s2 []T) []T {
 	if len(s1) == 0 {
 		return []T{}
 	}
@@ -151,7 +151,7 @@ func Diff[T enumerable](s1, s2 []T) []T {
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
 // Returns empty if given slices, s1 or s2, are nil or empty.
-func Intersect[T enumerable](s1, s2 []T) []T {
+func Intersect[T comparable](s1, s2 []T) []T {
 	if len(s1) == 0 || len(s2) == 0 {
 		return []T{}
 	}
