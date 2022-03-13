@@ -166,3 +166,16 @@ func Intersect[T comparable](s1, s2 []T) []T {
 
 	return result
 }
+
+// Any returns true if the given function returns true for any element of the slice.
+// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
+// as types for slice values.
+func Any[T comparable](slice []T, f func(T) bool) bool {
+	for _, v := range slice {
+		if f(v) {
+			return true
+		}
+	}
+
+	return false
+}
