@@ -16,7 +16,6 @@ jobs:
     - name: Set up golangci-lint
       uses: golangci/golangci-lint-action@v2
       with:
-        version: v1.43
         args: --timeout=5m0s
 
     - name: Vet
