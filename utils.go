@@ -5,8 +5,20 @@ import (
 	"sort"
 )
 
+type signedInt interface {
+	~int | ~int8 | ~int16 | ~int32 | ~int64
+}
+
+type unsignedInt interface {
+	~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64
+}
+
+type float interface {
+	~float32 | ~float64
+}
+
 type number interface {
-	int | int8 | int16 | int32 | int64 | float32 | float64 | uint | uint8 | uint16 | uint32 | uint64
+	signedInt | unsignedInt | float
 }
 
 type enumerable interface {
@@ -115,8 +127,7 @@ func Max[T number](slice []T) T {
 // It any type for slice values.
 // Returns empty if given slice is nil or empty.
 func Filter[T any](slice []T, f func(T) bool) []T {
-	var result []T
-
+	result := make([]T, 0, len(slice))
 	for _, v := range slice {
 		if f(v) {
 			result = append(result, v)
