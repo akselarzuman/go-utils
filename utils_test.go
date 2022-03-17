@@ -1941,6 +1941,16 @@ func TestFilter(t *testing.T) {
 			}
 		})
 
+		t.Run("when nil slice", func(t *testing.T) {
+			filtered := Filter(nil, func(tc testCase) bool {
+				return tc.age > 18
+			})
+
+			if len(filtered) != 0 {
+				t.Errorf("Expected empty slice, but got %v", filtered)
+			}
+		})
+
 		t.Run("when slice is not empty", func(t *testing.T) {
 			testCases := []testCase{
 				{
