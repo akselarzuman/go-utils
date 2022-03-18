@@ -1983,3 +1983,130 @@ func TestFilter(t *testing.T) {
 		})
 	})
 }
+
+func TestDiff(t *testing.T) {
+	t.Run("struct scenarios", func(t *testing.T) {
+		type testCase struct {
+			name    string
+			surname string
+			age     int
+		}
+
+		t.Run("when empty slice", func(t *testing.T) {
+			diff := Diff([]testCase{}, []testCase{})
+
+			if len(diff) != 0 {
+				t.Errorf("Expected empty slice, but got %v", diff)
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			diff := Diff([]testCase(nil), []testCase{})
+
+			if len(diff) != 0 {
+				t.Errorf("Expected empty slice, but got %v", diff)
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			diff := Diff(nil, []testCase{})
+
+			if len(diff) != 0 {
+				t.Errorf("Expected empty slice, but got %v", diff)
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			testCases := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			diff := Diff(testCases, []testCase{})
+
+			if len(diff) != 2 {
+				t.Errorf("Expected 2, but got %d", len(diff))
+			}
+
+			if diff[0] != testCases[0] {
+				t.Errorf("Expected %v, but got %v", testCases[0], diff[0])
+			}
+
+			if diff[1] != testCases[1] {
+				t.Errorf("Expected %v, but got %v", testCases[1], diff[1])
+			}
+
+			diff = Diff([]testCase{}, testCases)
+
+			if len(diff) != 0 {
+				t.Errorf("Expected empty, but got %d", len(diff))
+			}
+		})
+
+		t.Run("when slices are not empty", func(t *testing.T) {
+			s1 := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+				{
+					name:    "John",
+					surname: "Doe",
+					age:     25,
+				},
+				{
+					name:    "Jane",
+					surname: "Doe",
+					age:     25,
+				},
+			}
+
+			s2 := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			diff := Diff(s1, s2)
+
+			if len(diff) != 2 {
+				t.Errorf("Expected 2, but got %d", len(diff))
+			}
+
+			if diff[0] != s1[2] {
+				t.Errorf("Expected %v, but got %v", s1[2], diff[0])
+			}
+
+			if diff[1] != s1[3] {
+				t.Errorf("Expected %v, but got %v", s1[3], diff[1])
+			}
+
+			diff = Diff(s2, s1)
+
+			if len(diff) != 0 {
+				t.Errorf("Expected empty, but got %d", len(diff))
+			}
+		})
+	})
+}
