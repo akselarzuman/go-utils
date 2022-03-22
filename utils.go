@@ -22,7 +22,7 @@ type number interface {
 }
 
 type enumerable interface {
-	number | string
+	number | ~string
 }
 
 // Contains checks whether the value is in slice or not.
