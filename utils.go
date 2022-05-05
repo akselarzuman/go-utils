@@ -84,8 +84,7 @@ func SortDesc[T enumerable](slice []T) {
 }
 
 // Min get the min value of slice.
-// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64
-// as types for slice values.
+// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32 and uint64 as types for slice values.
 // Returns 0 if slice is nil or empty.
 func Min[T number](slice []T) T {
 	if len(slice) == 0 {
@@ -159,8 +158,7 @@ func Diff[T comparable](s1, s2 []T) []T {
 }
 
 // Intersect returns the intersection of two slices.
-// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
-// as types for slice values.
+// It supports all comparable types for slice values.
 // Returns empty if given slices, s1 or s2, are nil or empty.
 func Intersect[T comparable](s1, s2 []T) []T {
 	if len(s1) == 0 || len(s2) == 0 {
@@ -179,8 +177,7 @@ func Intersect[T comparable](s1, s2 []T) []T {
 }
 
 // Any returns true if the given function returns true for any element of the slice.
-// It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
-// as types for slice values.
+// It supports all comparable types as slice values.
 func Any[T comparable](slice []T, f func(T) bool) bool {
 	for _, v := range slice {
 		if f(v) {
@@ -189,4 +186,27 @@ func Any[T comparable](slice []T, f func(T) bool) bool {
 	}
 
 	return false
+}
+
+// All returns true if the given function returns true for all elements of the slice.
+// It supports all comparable types for slice values.
+func All[T comparable](slice []T, f func(T) bool) bool {
+	for _, v := range slice {
+		if !f(v) {
+			return false
+		}
+	}
+
+	return true
+}
+
+// Select returns a new slice with the new type of the given function.
+// IT supports all comparable types for slice values.
+func Select[T, K comparable](slice []T, f func(T) K) []K {
+	result := make([]K, 0, len(slice))
+	for _, v := range slice {
+		result = append(result, f(v))
+	}
+
+	return result
 }
