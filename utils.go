@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"reflect"
 	"sort"
 )
 
@@ -53,14 +52,6 @@ func Sum[T number](slice []T) T {
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
 func Sort[T enumerable](slice []T) {
-	t := reflect.TypeOf(slice)
-
-	if t.Elem().Kind() == reflect.String {
-		var s interface{} = slice
-		sort.Strings(s.([]string))
-		return
-	}
-
 	sort.Slice(slice, func(i, j int) bool {
 		return slice[i] < slice[j]
 	})
@@ -70,14 +61,6 @@ func Sort[T enumerable](slice []T) {
 // It supports int, int8, int16, int32, int64, float32, float64, uint, uint8, uint16, uint32, uint64 and string
 // as types for slice values.
 func SortDesc[T enumerable](slice []T) {
-	t := reflect.TypeOf(slice)
-
-	if t.Elem().Kind() == reflect.String {
-		var s interface{} = slice
-		sort.Sort(sort.Reverse(sort.StringSlice(s.([]string))))
-		return
-	}
-
 	sort.Slice(slice, func(i, j int) bool {
 		return slice[i] > slice[j]
 	})
