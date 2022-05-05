@@ -1,6 +1,11 @@
 # go-utils
 `go-utils` is a basic util library for arrays and slices. <br />
-Methods are implemented using [Generics](https://tip.golang.org/doc/go1.18#generics) in [Go 1.18](https://tip.golang.org/doc/go1.18), therefore, Go 1.18 is needed to use the methods.
+Functions are implemented using [Generics](https://tip.golang.org/doc/go1.18#generics) in [Go 1.18](https://tip.golang.org/doc/go1.18), therefore, Go 1.18 is needed to use the methods.
+
+### How to install?
+```bash
+go get github.com/akselarzuman/go-utils
+```
 
 ### Example
 ```go

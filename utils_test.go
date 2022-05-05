@@ -2110,3 +2110,215 @@ func TestDiff(t *testing.T) {
 		})
 	})
 }
+
+func TestAny(t *testing.T) {
+	t.Run("struct scenarios", func(t *testing.T) {
+		type testCase struct {
+			name    string
+			surname string
+			age     int
+		}
+
+		t.Run("when empty slice", func(t *testing.T) {
+			any := Any([]testCase{}, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if any {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			any := Any([]testCase(nil), func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if any {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			any := Any(nil, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if any {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			testCases := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			any := Any(testCases, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if !any {
+				t.Errorf("Expected true, but got false")
+			}
+		})
+	})
+}
+
+func TestAll(t *testing.T) {
+	t.Run("struct scenarios", func(t *testing.T) {
+		type testCase struct {
+			name    string
+			surname string
+			age     int
+		}
+
+		t.Run("when empty slice", func(t *testing.T) {
+			all := All([]testCase{}, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if !all {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			all := All([]testCase(nil), func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if !all {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			all := All(nil, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if !all {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			testCases := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			all := All(testCases, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if !all {
+				t.Errorf("Expected true, but got false")
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			testCases := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			all := All(testCases, func(t testCase) bool {
+				return t.name == "Aksel"
+			})
+
+			if all {
+				t.Errorf("Expected false, but got true")
+			}
+		})
+	})
+}
+
+func TestSelect(t *testing.T) {
+	t.Run("struct scenarios", func(t *testing.T) {
+		type testCase struct {
+			name    string
+			surname string
+			age     int
+		}
+
+		t.Run("when empty slice", func(t *testing.T) {
+			selected := Select([]testCase{}, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if len(selected) != 0 {
+				t.Errorf("Expected empty, but got %d", len(selected))
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			selected := Select([]testCase(nil), func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if len(selected) != 0 {
+				t.Errorf("Expected empty, but got %d", len(selected))
+			}
+		})
+
+		t.Run("when nil slice", func(t *testing.T) {
+			selected := Select(nil, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if len(selected) != 0 {
+				t.Errorf("Expected empty, but got %d", len(selected))
+			}
+		})
+
+		t.Run("when slice is not empty", func(t *testing.T) {
+			testCases := []testCase{
+				{
+					name:    "Aksel",
+					surname: "Arzuman",
+					age:     30,
+				},
+				{
+					name:    "Zeynep",
+					surname: "Arzuman",
+					age:     25,
+				},
+			}
+
+			selected := Select(testCases, func(t testCase) bool {
+				return t.surname == "Arzuman"
+			})
+
+			if len(selected) != 2 {
+				t.Errorf("Expected 2, but got %d", len(selected))
+			}
+		})
+	})
+}
