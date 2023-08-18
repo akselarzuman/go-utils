@@ -193,3 +193,16 @@ func Select[T, K comparable](slice []T, f func(T) K) []K {
 
 	return result
 }
+
+// IndexOf returns the index of the first element of the slice that satisfies the given function.
+// It supports all comparable types for slice values.
+// Returns -1 if the given function returns false for all elements of the slice.
+func IndexOf[T comparable](slice []T, f func(T) bool) int {
+	for i, v := range slice {
+		if f(v) {
+			return i
+		}
+	}
+
+	return -1
+}

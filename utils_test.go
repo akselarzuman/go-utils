@@ -2322,3 +2322,83 @@ func TestSelect(t *testing.T) {
 		})
 	})
 }
+
+func TestIndexOf(t *testing.T) {
+	t.Run("when slice is empty", func(t *testing.T) {
+		input := []int{}
+		expectedOutput := -1
+		actualOutput := IndexOf(input, func(i int) bool {
+			return i == 1
+		})
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("when slice is nil", func(t *testing.T) {
+		input := []int(nil)
+		expectedOutput := -1
+		actualOutput := IndexOf(input, func(i int) bool {
+			return i == 1
+		})
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("when slice is not empty", func(t *testing.T) {
+		input := []int{1, 2, 3, 4}
+		expectedOutput := 1
+		actualOutput := IndexOf(input, func(i int) bool {
+			return i == 2
+		})
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("when slice is not empty", func(t *testing.T) {
+		input := []int{1, 2, 3, 4}
+		expectedOutput := -1
+		actualOutput := IndexOf(input, func(i int) bool {
+			return i == 5
+		})
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+
+	t.Run("when slice is not empty", func(t *testing.T) {
+		type testCase struct {
+			name    string
+			surname string
+			age     int
+		}
+
+		input := []testCase{
+			{
+				name:    "Aksel",
+				surname: "Arzuman",
+				age:     30,
+			},
+			{
+				name:    "Zeynep",
+				surname: "Arzuman",
+				age:     28,
+			},
+		}
+
+		expectedOutput := 1
+		actualOutput := IndexOf(input, func(t testCase) bool {
+			return t.age == 28
+		})
+
+		if actualOutput != expectedOutput {
+			t.Errorf("Expected %d, but got %d", expectedOutput, actualOutput)
+		}
+	})
+}
